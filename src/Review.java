@@ -13,8 +13,13 @@ public class Review {
 		System.out.println("[5] Given a sentence and a letter it gives the number of words of the sentence that begins with that letter.");
 		System.out.println("[6] Given a sentence and a letter it gives the number of words of the sentence that ends with that letter.");
 		System.out.println("[7] Given a word it tells the user whether the word is a palindrome or it is not.");
+		System.out.println("[0] Exit");
 		int option = sc.nextInt();
 		switch (option) {
+		case 0:
+			n=1;
+			System.out.println("The program has been stopped.");
+			break;
 		case 1: 
 			System.out.println("**EVEN NUMBERS**");
 			System.out.println("Enter a number:");
@@ -34,18 +39,22 @@ public class Review {
 			break;
 		case 2: 
 			System.out.println("**NUMBER & DIGIT**");
-			System.out.println("Enter a long number");
+			//ask for a number
+			System.out.println("Enter a number");
 			Integer num1 = sc.nextInt();
-			System.out.println("Now enter a one-digit-number:");
+			//ask for a digit
+			System.out.println("Now enter one digit:");
 			Integer num2 = sc.nextInt();
 			//convert them to Strings to compare digit by digit
 			String numA = num1.toString();
 			String numB = num2.toString();
+			//define a counter
 			int erantzuna = 0;
+			//do a loop to compare each character of the 1st one with the digit and repeat it as long as we can
 			for(int i = 0; i<numA.length();i++) {
-			if(numA.charAt(i)==numB.charAt(0)) {
-				erantzuna++;
-			}
+				if(numA.charAt(i)==numB.charAt(0)) {
+					erantzuna++;
+				}
 			}
 			System.out.println("The 2nd number you entered is "+erantzuna+" times repeted.");
 			break;
