@@ -13,11 +13,8 @@ public class Review {
 		System.out.println("[7] Given a word it tells the user whether the word is a palindrome or it is not.");
 		
 		int option = sc.nextInt();
-		//to make the user choose one of the numbers we want
-		while (option<=0||option>7) {
-			System.out.println("Enter a valid number");
-			option=sc.nextInt();
-		}
+		int n = 0;
+		while (n==0) {
 		switch (option) {
 		case 1: 
 			System.out.println("**EVEN NUMBERS**");
@@ -123,7 +120,12 @@ public class Review {
 			}else{
 				System.out.println("It's not palindrome.");
 			}
-			
+			break;
+		default:
+			//to make the user choose one of the numbers we want
+			System.out.println("Enter a valid number");
+			option=sc.nextInt();
+		}
 		}
 	}
 }
