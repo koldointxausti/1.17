@@ -67,13 +67,10 @@ public class Review {
 		case 4:
 			//don't know how to do it
 			break;
-		case 5: //not finished
+		case 5:
 			System.out.println("**NUMBER OF WORDS THAT STARTS WITH**");
-			//System.out.println("How many words are you entering?");
-			//needed to put this to scan the sentence
-			
-			//int total = sc.nextInt();
 			System.out.println("Enter a sentence:");
+			//needed to put this to scan the sentence
 			sc.nextLine();
 			String sentence = sc.nextLine();
 			//String[] word = new String[total];
@@ -87,7 +84,7 @@ public class Review {
 					times++;
 				}
 			}
-			System.out.println(times);
+			System.out.println("This sentence has "+times+ " words that starts with " +letter);
 			break;
 		case 6: //not finished
 			System.out.println("**NUMBER OF WORDS THAT FINISHES WITH**");
@@ -95,15 +92,19 @@ public class Review {
 			//needed to put this to scan the sentence
 			sc.nextLine();
 			String sentence2 = sc.nextLine();
-			System.out.println("Now give a letter");
-			char letter2 = sc.next().charAt(0);
+			//String[] word = new String[total];
+			String[] words2 = sentence2.split(" ");
+			int total2 = words2.length;
+			System.out.println("Enter a letter");
+			char letter2=sc.next().charAt(0);
 			int times2=0;
-			for(int i=0; i<sentence2.length();i++) {
-			if (sentence2.charAt(i)==letter2) {
-				times2++;
-			}	
+			for ( int i = 0; i<total2;i++) {
+				if (words2[i].charAt(words2[i].length()-1) == letter2) {
+					times2++;
+				}
 			}
-			System.out.println("The letter you entered is repeted "+times2+" times.");
+			System.out.println("This sentence has "+times2+ " words that finishes with " +letter2);
+			break;
 		case 7:
 			System.out.println("**PALINDROME**");
 			System.out.println("Enter a word");
@@ -111,7 +112,7 @@ public class Review {
 			sc.close();
 			int up = 0;
 			int down = palindrome.length()-1;
-			while (up<down) {
+			while (up<palindrome.length()) {
 				if (palindrome.charAt(up)==palindrome.charAt(down)) {
 					up++;
 					down--;
