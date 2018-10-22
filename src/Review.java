@@ -3,6 +3,8 @@ import java.util.Scanner;
 public class Review {
 	public static void main (String[] args) {
 		Scanner sc = new Scanner(System.in);
+		int n = 0;
+		while (n!=1) {
 		System.out.println("Select one option:");
 		System.out.println("[1] Given a positive number tells how many even digit has the number");
 		System.out.println("[2] Given a positive number and a digit tells whether the digit appears in the number or not and in case yes, how many times.");
@@ -11,10 +13,7 @@ public class Review {
 		System.out.println("[5] Given a sentence and a letter it gives the number of words of the sentence that begins with that letter.");
 		System.out.println("[6] Given a sentence and a letter it gives the number of words of the sentence that ends with that letter.");
 		System.out.println("[7] Given a word it tells the user whether the word is a palindrome or it is not.");
-		
 		int option = sc.nextInt();
-		int n = 0;
-		while (n==0) {
 		switch (option) {
 		case 1: 
 			System.out.println("**EVEN NUMBERS**");
@@ -125,6 +124,7 @@ public class Review {
 			//to make the user choose one of the numbers we want
 			System.out.println("Enter a valid number");
 			option=sc.nextInt();
+			break;
 		}
 		}
 	}
