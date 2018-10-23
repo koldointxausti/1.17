@@ -16,6 +16,7 @@ public class Review {
 		System.out.println("[0] Exit");
 		int option = sc.nextInt();
 		switch (option) {
+		//if the user enters 0 the program will stop
 		case 0:
 			n=1;
 			System.out.println("The program has been stopped.");
@@ -23,28 +24,50 @@ public class Review {
 		case 1: 
 			System.out.println("**EVEN NUMBERS**");
 			System.out.println("Enter a number:");
-			int a = sc.nextInt();
+			Integer a = sc.nextInt();
+			//to be sure the number is positive
 			while (a < 0) {
 				System.out.println("Enter a positive number:");
 				a = sc.nextInt();
 			}
-			int counter = 1;
-			while (a>0) {
-				if(a%2==0) {
+			//convert the number to a String
+			String number = a.toString();
+			//save it in a array
+			char numbers[] = number.toCharArray();
+			int counter = 0;
+			//create a loop
+			for(int i=0;number.length()>i; i++) {
+				//to check if each number is
+				switch (numbers[i]) {
+				//even
+				case '0': case '3': case '5': case '7': case '9': 
+					break;
+				//or odd
+				case '2': case '4': case '6': case '8':
 					counter++;
+					break;
 				}
-				a--;
 			}
-			System.out.println("The number you entered has " +counter+" even numbers.");
+			System.out.println(number +" has "+ counter + " even digits.");
 			break;
 		case 2: 
 			System.out.println("**NUMBER & DIGIT**");
 			//ask for a number
 			System.out.println("Enter a number");
 			Integer num1 = sc.nextInt();
+			//to be sure the number is positive
+			while (num1 < 0) {
+				System.out.println("Enter a positive number:");
+				num1 = sc.nextInt();
+			}
 			//ask for a digit
 			System.out.println("Now enter one digit:");
 			Integer num2 = sc.nextInt();
+			//to be sure the digit is positive
+			while (num2 < 0) {
+				System.out.println("Enter a positive digit:");
+				num2 = sc.nextInt();
+			}
 			//convert them to Strings to compare digit by digit
 			String numA = num1.toString();
 			String numB = num2.toString();
@@ -60,14 +83,27 @@ public class Review {
 			break;
 		case 3:
 			System.out.println("**INVERT NUMBER**");
+			boolean one = true;
 			System.out.println("Enter a number: ");
-			int c = sc.nextInt();
-			if (c > 0) {
-				c = c - (c * 2);
-			}else {
-				c = c + (-c * 2);
+			while (one == true) {
+				if(sc.hasNextInt()) {
+					Integer c = sc.nextInt();
+					if (c > 0) {
+						String c1 = c.toString();
+						System.out.println("This is the inverted number of the one you entered: ");
+						for (int i = c1.length()-1; i>=0; i--) {
+							System.out.print(c1.charAt(i));
+							one = false;
+						}
+						System.out.println("");
+					}else {
+						System.out.println("Enter a positive number:");
+					}
+				}
+				else {
+					System.out.println("Enter a number:");
+				}
 			}
-			System.out.println("This is the inverted number of the one you entered: "+c);
 			break;
 		case 4:
 			//don't know how to do it
@@ -91,7 +127,7 @@ public class Review {
 			}
 			System.out.println("This sentence has "+times+ " words that starts with " +letter);
 			break;
-		case 6: //not finished
+		case 6:
 			System.out.println("**NUMBER OF WORDS THAT FINISHES WITH**");
 			System.out.println("Enter a sentence:");
 			//needed to put this to scan the sentence
