@@ -84,8 +84,8 @@ public class Review {
 		case 3:
 			System.out.println("**INVERT NUMBER**");
 			boolean one = true;
-			System.out.println("Enter a number: ");
-			while (one == true) {
+			while (one) {
+				System.out.println("Enter a number: ");
 				if(sc.hasNextInt()) {
 					Integer c = sc.nextInt();
 					if (c > 0) {
@@ -97,11 +97,13 @@ public class Review {
 						}
 						System.out.println("");
 					}else {
-						System.out.println("Enter a positive number:");
+							System.out.println("Enter a positive number:");
 					}
 				}
-				else {
-					System.out.println("Enter a number:");
+				else{
+					System.out.println("It has to be a number.");
+					sc.nextLine();
+					//sc.nextLine();
 				}
 			}
 			break;
@@ -150,7 +152,6 @@ public class Review {
 			System.out.println("**PALINDROME**");
 			System.out.println("Enter a word");
 			String palindrome = sc.next();
-			sc.close();
 			int up = 0;
 			int down = palindrome.length()-1;
 			while (up<palindrome.length()) {
@@ -172,5 +173,6 @@ public class Review {
 			break;
 		}
 		}
+		sc.close();
 	}
 }
